@@ -1,6 +1,5 @@
 @props(['listing'])
 
-
 <x-card>
     <div class="flex">
         <img class="hidden w-48 mr-6 md:block" src="{{ asset('images/no-image.png') }}" alt="" />
