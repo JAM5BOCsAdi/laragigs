@@ -1,3 +1,4 @@
+{{-- View After Clicked "Post Job" --}}
 <x-layout>
     @include('partials._hero')
     @include('partials._search')

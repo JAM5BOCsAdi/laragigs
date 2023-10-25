@@ -1,3 +1,4 @@
+{{-- General style for the tags in a List item --}}
 @props(['tagsCsV'])
 
 @php

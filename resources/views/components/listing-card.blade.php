@@ -1,3 +1,4 @@
+{{-- General style for a List item --}}
 @props(['listing'])
 
 <x-card>
