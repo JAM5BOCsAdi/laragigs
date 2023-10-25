@@ -1,4 +1,4 @@
-{{-- View After Clicked "Post Job" --}}
+{{-- First page | All the Listings --}}
 <x-layout>
     @include('partials._hero')
     @include('partials._search')

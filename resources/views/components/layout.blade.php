@@ -1,3 +1,4 @@
+{{-- General layout for every page with changing body {{$slots}} --}}
 <!DOCTYPE html>
 <html lang="en">
 
