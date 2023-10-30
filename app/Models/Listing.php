@@ -9,18 +9,18 @@ class Listing extends Model
 {
     use HasFactory;
 
-    // Ez alapvetően nincsen (ki van kommentelve), csak a videó alatt kommentben írták, hogy talán ekkor működhet
-    protected $fillable = [
-        'user_id',
-        'title',
-        'company',
-        'location',
-        'website',
-        'email',
-        'description',
-        'tags',
+    // Ez alapvetően nincsen (ki van kommentelve), csak a kommentben írták, hogy talán ekkor működhet
+    // protected $fillable = [
+    //     'user_id',
+    //     'title',
+    //     'company',
+    //     'location',
+    //     'website',
+    //     'email',
+    //     'description',
+    //     'tags',
 
-    ];
+    // ];
 
     public function scopeTry($query, array $filters)
     {
@@ -39,6 +39,6 @@ class Listing extends Model
     // Relationship to User
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
