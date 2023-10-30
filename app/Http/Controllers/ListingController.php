@@ -6,6 +6,7 @@ use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -105,6 +106,10 @@ class ListingController extends Controller
     // Manage Listings
     public function manage()
     {
+        // Original:  "listings()" no working -> Undefined method 'listings'.intelephense(1013)
         return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+
+        // Other way:
+        // return view('listings.manage', ['listings' => Auth::user()->listings()->get()]);
     }
 }
