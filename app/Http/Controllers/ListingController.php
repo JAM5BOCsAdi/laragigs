@@ -6,7 +6,7 @@ use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -73,6 +73,12 @@ class ListingController extends Controller
     // Update Listing Data
     public function update(Request $request, Listing $listing)
     {
+        // Make sure logged in user is owner
+        if ($listing->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+
         // dd($request->file('logo')->store());
         // dd($request->all());
         $formFields = $request->validate([
@@ -99,6 +105,11 @@ class ListingController extends Controller
     // Delete Listing
     public function destroy(Listing $listing)
     {
+
+        // Make sure logged in user is owner
+        if ($listing->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted successfully!');
     }
